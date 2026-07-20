@@ -1,0 +1,14 @@
+{
+    "episodes": [
+        {
+            "title": "aaaa",
+            "description": "hoge",
+            "src": "https://open.spotify.com/embed/episode/3ap7F5kJuxrgTY5bscn4Hd?utm_source=generator"
+        },
+        {
+            "title": "bbb",
+            "description": "fuga",
+            "src": "https://open.spotify.com/embed/episode/3ap7F5kJuxrgTY5bscn4Hd?utm_source=generator"
+        }
+    ]
+}
