@@ -35,6 +35,7 @@ mise run episodes
 各エピソードには Spotify のエピソードページへのリンクと **embed プレイヤー**が自動で付く。ID は Web API ではなく、**RSS の `<link>` (podcasters.spotify.com の公開ページ)** に埋め込まれている全エピソードの `spotifyUrl` をスクリプトが抽出する (認証・Premium 不要)。
 
 - 抽出に失敗した場合: そのエピソードはタイトル + ネイティブ `<audio>` プレイヤー (mp3 直接再生) でフォールバック
+- 最新エピソードの X 投稿用ブックマークレットは `bookmarklet.js` 参照
 - カバーアート (`public/cover.jpg`) は固定アセットとしてリポジトリで管理 (変更時は差し替えてコミット)
 
 ### データソースの優先順位
