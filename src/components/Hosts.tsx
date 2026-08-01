@@ -24,8 +24,8 @@ const hosts: Host[] = [
 
 export function Hosts() {
   return (
-    <section className="pt-10 mx-auto max-w-screen-xl pb-4 px-4 sm:px-8">
-      <div className="max-w-screen-xl text-center">
+    <section className="pt-10 mx-auto max-w-7xl pb-4 px-4 sm:px-8">
+      <div className="max-w-7xl text-center">
         <h3 className="text-gray-800 text-3xl font-semibold md:text-4xl">Radio host</h3>
         <div className="mt-4 max-w-xl mx-auto">
           <ul className="grid gap-8 md:grid-cols-2">
