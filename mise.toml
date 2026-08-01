@@ -1,0 +1,19 @@
+[tools]
+node = "24" # CI (setup-node) と同一メジャー
+pnpm = "11.18.0" # package.json の packageManager と一致
+python = "3.12" # update_episodes.py 用 (stdlib のみ、CI の ubuntu デフォルトと同一メジャー)
+
+[tasks]
+# --- 開発 ---
+dev = { run = "pnpm dev", description = "開発サーバーを起動" }
+build = { run = "pnpm build", description = "本番ビルド (dist/ に生成)" }
+preview = { run = "pnpm preview", description = "ビルド結果をローカル確認" }
+
+# --- チェック (配信前) ---
+check = { depends = ["fmt-check", "lint"], description = "fmt + lint をまとめて実行" }
+fmt = { run = "pnpm fmt", description = "oxfmt で整形" }
+fmt-check = { run = "pnpm fmt:check", description = "整形チェックのみ" }
+lint = { run = "pnpm exec oxlint", description = "oxlint (correctness は error)" }
+
+# --- データ ---
+episodes = { run = "python3 scripts/update_episodes.py", description = "RSS から src/episodes.json を再生成 (Spotify embed ID も付与)" }
