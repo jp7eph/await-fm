@@ -1,4 +1,12 @@
 import type { ReactNode } from "react";
+import {
+  AmazonMusicIcon,
+  ApplePodcastsIcon,
+  RssIcon,
+  SpotifyIcon,
+  XIcon,
+  YouTubeIcon,
+} from "./icons";
 
 interface Link {
   label: string;
@@ -13,119 +21,42 @@ const links: Link[] = [
     href: "https://open.spotify.com/show/1EdEzpjF1NB27op0TF69t4",
     className:
       "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-green-500 rounded-lg hover:bg-green-400 active:bg-green-500",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-6 h-6 md:w-10 md:h-10"
-      >
-        <path
-          fillRule="evenodd"
-          d="M19.098 10.638c-3.868-2.297-10.248-2.508-13.941-1.387-.593.18-1.22-.155-1.399-.748-.18-.593.154-1.22.748-1.4 4.239-1.287 11.285-1.038 15.738 1.605.533.317.708 1.005.392 1.538-.316.533-1.005.709-1.538.392zm-.126 3.403c-.272.44-.847.578-1.287.308-3.225-1.982-8.142-2.557-11.958-1.399-.494.15-1.017-.129-1.167-.623-.149-.495.13-1.016.624-1.167 4.358-1.322 9.776-.682 13.48 1.595.44.27.578.847.308 1.286zm-1.469 3.267c-.215.354-.676.465-1.028.249-2.818-1.722-6.365-2.111-10.542-1.157-.402.092-.803-.16-.895-.562-.092-.403.159-.804.562-.896 4.571-1.045 8.492-.595 11.655 1.338.353.215.464.676.248 1.028zm-5.503-17.308c-6.627 0-12 5.373-12 12 0 6.628 5.373 12 12 12 6.628 0 12-5.372 12-12 0-6.627-5.372-12-12-12z"
-        />
-      </svg>
-    ),
+    icon: <SpotifyIcon />,
   },
   {
     label: "YouTube",
     href: "https://www.youtube.com/@await_fm",
     className:
       "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-red-600 rounded-lg hover:bg-red-500 active:bg-red-700",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-6 h-6 md:w-10 md:h-10"
-      >
-        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-      </svg>
-    ),
+    icon: <YouTubeIcon />,
   },
   {
     label: "Apple Podcasts",
     href: "https://podcasts.apple.com/jp/podcast/await-fm/id1839927506",
     className:
       "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-violet-600 rounded-lg hover:bg-violet-500 active:bg-violet-700",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-6 h-6 md:w-10 md:h-10"
-      >
-        <path
-          d="M9.5 15.5c0 -1.2 1 -2 2.5 -2s2.5 0.8 2.5 2C14.5 18 14 23 12 23s-2.5 -5 -2.5 -7.5Z"
-          strokeWidth="1"
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M3.25 11a8.75 8.75 0 1 1 12.513 7.902 17.468 17.468 0 0 1 -0.335 1.76c3.975 -1.41 6.822 -5.203 6.822 -9.662C22.25 5.34 17.66 0.75 12 0.75S1.75 5.34 1.75 11c0 4.459 2.847 8.253 6.822 9.663l-0.03 -0.125a17.481 17.481 0 0 1 -0.305 -1.636A8.75 8.75 0 0 1 3.25 11Z"
-          strokeWidth="1"
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M6.75 11a5.25 5.25 0 1 1 9.119 3.549c0.086 0.301 0.131 0.62 0.131 0.951 0 0.288 -0.006 0.609 -0.02 0.953a6.75 6.75 0 1 0 -7.96 0c-0.014 -0.344 -0.02 -0.665 -0.02 -0.953 0 -0.331 0.045 -0.65 0.131 -0.951A5.231 5.231 0 0 1 6.75 11Z"
-          strokeWidth="1"
-        />
-        <path d="M9.75 10.25a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 1 0 -4.5 0" strokeWidth="1" />
-      </svg>
-    ),
+    icon: <ApplePodcastsIcon />,
   },
   {
     label: "Amazon Music",
     href: "https://music.amazon.co.jp/podcasts/686b235c-22b8-42f2-b8ad-af97f8d3f557/await-fm",
     className:
       "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-cyan-500 rounded-lg hover:bg-cyan-400 active:bg-cyan-600",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-6 h-6 md:w-10 md:h-10"
-      >
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.074-1.052-.872-1.238-1.276-1.814-2.106-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.333c-.259-.056-.548-.266-.472-.66.704-3.716 4.06-4.838 7.066-4.838 1.537 0 3.547.41 4.758 1.574 1.538 1.436 1.392 3.352 1.392 5.438v4.923c0 1.481.616 2.13 1.192 2.929.204.287.247.63-.01.839-.647.541-1.794 1.537-2.423 2.099l-.008-.007zm3.559 1.988c-2.748 1.472-5.735 2.181-8.453 2.181-4.027 0-7.927-1.393-11.081-3.706-.277-.202-.481.154-.251.416 2.925 3.326 6.786 5.326 11.076 5.326 3.061 0 6.614-1.214 9.066-3.494.406-.377.058-.945-.357-.723zm.67 2.216c-.091.227.104.32.31.147 1.339-1.12 1.685-3.466 1.411-3.804-.272-.336-2.612-.626-4.04.377-.22.154-.182.367.062.337.805-.096 2.595-.312 2.913.098.319.41-.355 2.094-.656 2.845z"
-        />
-      </svg>
-    ),
+    icon: <AmazonMusicIcon />,
   },
   {
     label: "RSS",
     href: "https://anchor.fm/s/1068bb738/podcast/rss",
     className:
       "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-orange-600 rounded-lg hover:bg-orange-500 active:bg-orange-700",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-6 h-6 md:w-10 md:h-10"
-      >
-        <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z" />
-      </svg>
-    ),
+    icon: <RssIcon />,
   },
   {
     label: "X",
     href: "https://x.com/fmAwait",
     className:
       "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-gray-900 rounded-lg hover:bg-gray-800 active:bg-gray-700",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-6 h-6 md:w-10 md:h-10"
-      >
-        <path d="M14.233 10.163L22.971 0.006H20.9L13.313 8.825L7.253 0.006H0.264L9.428 13.343L0.264 23.994H2.335L10.347 14.68L16.747 23.994H23.736L14.233 10.163H14.233ZM11.397 13.46L10.468 12.132L3.081 1.565H6.261L12.223 10.093L13.152 11.421L20.901 22.506H17.721L11.397 13.461V13.46Z" />
-      </svg>
-    ),
+    icon: <XIcon />,
   },
 ];
 

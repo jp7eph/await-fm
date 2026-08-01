@@ -1,3 +1,5 @@
+import { XIcon } from "./icons";
+
 interface Host {
   name: string;
   role: string;
@@ -39,17 +41,7 @@ export function Hosts() {
                     href={host.x}
                     className="inline-flex items-center gap-2 mt-2 px-3 py-3 text-white duration-150 bg-gray-900 rounded-lg hover:bg-gray-800 active:bg-gray-700"
                   >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4"
-                    >
-                      <path
-                        fill="white"
-                        d="M14.233 10.163L22.971 0.006H20.9L13.313 8.825L7.253 0.006H0.264L9.428 13.343L0.264 23.994H2.335L10.347 14.68L16.747 23.994H23.736L14.233 10.163H14.233ZM11.397 13.46L10.468 12.132L3.081 1.565H6.261L12.223 10.093L13.152 11.421L20.901 22.506H17.721L11.397 13.461V13.46Z"
-                      />
-                    </svg>
+                    <XIcon className="w-4 h-4" />
                   </a>
                 </div>
               </li>
