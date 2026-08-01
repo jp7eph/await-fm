@@ -4,6 +4,7 @@ interface Link {
   label: string;
   href: string;
   className: string;
+  viewBox?: string;
   icon: ReactNode;
 }
 
@@ -80,16 +81,26 @@ const links: Link[] = [
       </>
     ),
   },
+  {
+    label: "X",
+    href: "https://x.com/fmAwait",
+    className:
+      "flex items-center gap-2 px-4 py-4 text-white duration-150 bg-gray-900 rounded-lg hover:bg-gray-800 active:bg-gray-700",
+    viewBox: "0 0 1200 1227",
+    icon: (
+      <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
+    ),
+  },
 ];
 
 export function PlatformLinks() {
   return (
     <>
-      {links.map(({ label, href, className, icon }) => (
+      {links.map(({ label, href, className, viewBox, icon }) => (
         <a key={href} href={href} aria-label={label} className={className}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
+            viewBox={viewBox ?? "0 0 24 24"}
             fill="currentColor"
             className="w-6 h-6 md:w-10 md:h-10"
           >
