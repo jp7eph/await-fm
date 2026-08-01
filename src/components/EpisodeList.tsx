@@ -28,15 +28,18 @@ export function EpisodeList() {
                 title={episode.title}
               />
             ) : (
-              // embedSrc が無いエピソードはプレイヤーなしでタイトル + 説明のみ (抽出失敗時も一覧は空にならない)
-              <a
-                href={episode.link || SHOW_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-gray-800 font-semibold hover:underline mb-2"
-              >
-                {episode.title}
-              </a>
+              // embedSrc が無いエピソードはタイトル + ネイティブ audio で再生 (カスタムプレイヤーなし)
+              <div className="mb-2">
+                <a
+                  href={episode.link || SHOW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-800 font-semibold hover:underline"
+                >
+                  {episode.title}
+                </a>
+                <audio src={episode.audioUrl} controls preload="none" className="w-full mt-2" />
+              </div>
             )}
             <span className="text-gray-500">{episode.description}</span>
           </div>
