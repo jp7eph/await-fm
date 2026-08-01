@@ -1,0 +1,48 @@
+// await.fm 最新エピソードの X 投稿用ブックマークレット
+//
+// 使い方:
+//   1. 下の BOOKMARKLET の値 (javascript: で始まる 1 行) をコピー
+//   2. ブラウザのブックマークを追加 → URL 欄に貼り付け (javascript: が消えたら補完)
+//   3. await.fm のページを開いた状態でブックマークをクリック
+//   4. X の投稿画面が全文入りで開くので、必要なら手を加えて投稿
+//
+// 動作:
+//   - ページの DOM から最新エピソードのタイトル・説明・Spotify URL を取得
+//   - iTunes API (CORS 可) から Apple Podcasts の trackId を取得
+//   - 投稿テキストを組み立てて X の intent ページ (twitter.com/intent/tweet) を開く
+//
+// 可読版 (BOOKMARKLET と同じロジック):
+//   const e = document.querySelector('.max-w-3xl > div:first-child');
+//   if (!e) return alert('await.fm のページで実行してください');
+//   const ifr = e.querySelector('iframe');
+//   const title = ifr ? ifr.title : (e.querySelector('a')?.textContent || '');
+//   const spotify = ifr
+//     ? ifr.src.replace('/embed/', '/').split('?')[0]
+//     : (e.querySelector('a')?.href || '');
+//   const desc = e.querySelector('span')?.textContent || '';
+//   fetch('https://itunes.apple.com/lookup?id=1839927506&entity=podcastEpisode&limit=200')
+//     .then((r) => r.json())
+//     .then((data) => {
+//       const ep = data.results.find(
+//         (x) => x.wrapperType === 'podcastEpisode' && x.trackName === title,
+//       );
+//       const apple = ep
+//         ? 'https://podcasts.apple.com/jp/podcast/await-fm/id1839927506?i=' + ep.trackId
+//         : '';
+//       const text = [
+//         title + ' の配信開始しました！',
+//         desc + ' の話をしてます！',
+//         '■Spotify',
+//         spotify,
+//         '■YouTube',
+//         'https://youtube.com/playlist?list=PLzh0TMIL-KgfpVrKGtN0u2kG_t3PXhfTn&si=sQSFxS3fPTQ9yugd',
+//         '■Apple Podcast',
+//         apple,
+//       ]
+//         .filter(Boolean)
+//         .join('\n');
+//       open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text));
+//     });
+
+export const BOOKMARKLET =
+  "javascript:(()=>{const e=document.querySelector('.max-w-3xl>div:first-child');if(!e)return alert('await.fm のページで実行してください');const i=e.querySelector('iframe');const t=i?i.title:(e.querySelector('a')?.textContent||'');const s=i?i.src.replace('/embed/','/').split('?')[0]:(e.querySelector('a')?.href||'');const d=e.querySelector('span')?.textContent||'';fetch('https://itunes.apple.com/lookup?id=1839927506&entity=podcastEpisode&limit=200').then(r=>r.json()).then(x=>{const p=x.results.find(y=>y.wrapperType==='podcastEpisode'&&y.trackName===t);const a=p?'https://podcasts.apple.com/jp/podcast/await-fm/id1839927506?i='+p.trackId:'';const z=[t+' の配信開始しました！',d+' の話をしてます！','■Spotify',s,'■YouTube','https://youtube.com/playlist?list=PLzh0TMIL-KgfpVrKGtN0u2kG_t3PXhfTn&si=sQSFxS3fPTQ9yugd','■Apple Podcast',a].filter(Boolean).join('\\n');open('https://twitter.com/intent/tweet?text='+encodeURIComponent(z))})})()";
