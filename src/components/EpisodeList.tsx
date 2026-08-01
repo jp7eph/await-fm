@@ -1,6 +1,7 @@
 import episodes from "../episodes.json";
 import type { Episode } from "../types";
-import { EpisodePlayer } from "./EpisodePlayer";
+
+const SHOW_URL = "https://open.spotify.com/show/1EdEzpjF1NB27op0TF69t4";
 
 export function EpisodeList() {
   return (
@@ -27,7 +28,15 @@ export function EpisodeList() {
                 title={episode.title}
               />
             ) : (
-              <EpisodePlayer episode={episode} />
+              // embedSrc が無いエピソードはプレイヤーなしでタイトル + 説明のみ (抽出失敗時も一覧は空にならない)
+              <a
+                href={episode.link || SHOW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-gray-800 font-semibold hover:underline mb-2"
+              >
+                {episode.title}
+              </a>
             )}
             <span className="text-gray-500">{episode.description}</span>
           </div>
